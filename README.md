@@ -19,7 +19,7 @@ Function Parameters
 Return Value
 * `Promise` resolving a `NodeList` containing *all* elements matching your selector found in the DOM within the `rootNode`
 
-Below is a snippet of an example, which you can see in an interactive example on [this CodePen](https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011). It simply logs all matching elements whenever any elements are inserted into the DOM.
+Below is a snippet of an example, which you can see in an interactive example on [this CodePen](https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011). It simply logs all matching elements whenever any matching elements are inserted into the DOM.
 
 ```
 const dumpElements = elements =>
