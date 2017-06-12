@@ -71,7 +71,7 @@ var awaitSelector = function awaitSelector(selector, rootNode, fallbackDelay) {
         observer = setInterval(findAndResolveElements, fallbackDelay || 250);
       }
 
-      (global || window).addEventListener('load', findAndResolveElements);
+      (window || global).addEventListener('load', findAndResolveElements);
     } catch (exception) {
       reject(exception);
     }
