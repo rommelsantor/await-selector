@@ -9,9 +9,17 @@ This is especially problematic when you're dealing with third-party scripts that
 
 Fortunately, there's a modern solution that won't keep you up at night: `MutationObserver`. This class is available in all modern browsers (IE11, even). It allows you to ask to be notified if there are any changes in the DOM.
 
-It was perfect for this `awaitSelector()` function I wrote to allow you to very simply specify the selector(s) you're looking for and use a Promise to handle *all* matching elements when *any* newly inserted matching elements appear.
+It was perfect for this `awaitSelector()` function I wrote to allow you to very simply specify the selector(s) you're looking for and use a `Promise` to handle *all* matching elements when *any* newly inserted matching elements appear.
 
-Below is a snippet of an example, which you can see in an interactive example on [this CodePen](https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011).
+Function Parameters
+* `selector` - the CSS selector used to select any/all matching elements
+* (`rootNode`) - the element that should be used as the subtree root to watch for DOM changes; default: `document`
+* (`fallbackDelay`) - the delay (in millisecs) to wait between lookups if using the fallback polling method; default: 250
+
+Return Value
+* `Promise` resolving a `NodeList` containing *all* elements matching your selector found in the DOM within the `rootNode`
+
+Below is a snippet of an example, which you can see in an interactive example on [this CodePen](https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011). It simply logs all matching elements whenever any elements are inserted into the DOM.
 
 ```
 const dumpElements = elements =>
