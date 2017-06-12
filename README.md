@@ -11,7 +11,7 @@ Fortunately, there's a modern solution that won't keep you up at night: `Mutatio
 
 It was perfect for this `awaitSelector()` function I wrote to allow you to very simply specify the selector(s) you're looking for and use a Promise to handle *all* matching elements when *any* newly inserted matching elements appear.
 
-Below is a snippet of an example, which you can see in an interactive example on [this CodePen https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011].
+Below is a snippet of an example, which you can see in an interactive example on [this CodePen](https://codepen.io/rommelsantor/pen/ZyWPWa?editors=0011).
 
 ```
 const dumpElements = elements =>
