@@ -64,7 +64,7 @@ const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolv
       observer = setInterval(findAndResolveElements, fallbackDelay || 250)
     }
 
-    (global || window).addEventListener('load', findAndResolveElements)
+    (window || global).addEventListener('load', findAndResolveElements)
   } catch (exception) {
     reject(exception)
   }
