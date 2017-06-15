@@ -27,18 +27,16 @@ const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolv
 
       let newElements = 0
 
-      if (!mutationObserverSupported) {
-        const attributeForBypassing = 'data-mutationobserved'
+      const attributeForBypassing = 'data-awaitselector-resolved'
 
-        allElements.forEach((el, i) => {
-          if (typeof el[attributeForBypassing] === 'undefined') {
-            allElements[i][attributeForBypassing] = ''
-            newElements += 1
-          }
-        })
-      }
+      allElements.forEach((el, i) => {
+        if (typeof el[attributeForBypassing] === 'undefined') {
+          allElements[i][attributeForBypassing] = ''
+          newElements += 1
+        }
+      })
 
-      if (mutationObserverSupported || newElements > 0) {
+      if (newElements > 0) {
         stopWatching()
         resolve(allElements)
       }
