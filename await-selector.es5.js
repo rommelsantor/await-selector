@@ -35,18 +35,16 @@ var awaitSelector = function awaitSelector(selector, rootNode, fallbackDelay) {
 
         var newElements = 0;
 
-        if (!mutationObserverSupported) {
-          var attributeForBypassing = 'data-mutationobserved';
+        var attributeForBypassing = 'data-awaitselector-resolved';
 
-          allElements.forEach(function (el, i) {
-            if (typeof el[attributeForBypassing] === 'undefined') {
-              allElements[i][attributeForBypassing] = '';
-              newElements += 1;
-            }
-          });
-        }
+        allElements.forEach(function (el, i) {
+          if (typeof el[attributeForBypassing] === 'undefined') {
+            allElements[i][attributeForBypassing] = '';
+            newElements += 1;
+          }
+        });
 
-        if (mutationObserverSupported || newElements > 0) {
+        if (newElements > 0) {
           stopWatching();
           resolve(allElements);
         }
@@ -71,7 +69,7 @@ var awaitSelector = function awaitSelector(selector, rootNode, fallbackDelay) {
         observer = setInterval(findAndResolveElements, fallbackDelay || 250);
       }
 
-      (window || global).addEventListener('load', findAndResolveElements);
+      findAndResolveElements();
     } catch (exception) {
       reject(exception);
     }
