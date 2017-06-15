@@ -1,4 +1,7 @@
 # awaitSelector()
+
+Read my article on this: [Promise-Based Detection of Element Injection &raquo;](https://hackernoon.com/promise-based-detection-of-element-injection-94bc12e33966)
+
 Do away with polling; let the DOM tell you when dynamically added elements are available!
 
 If you have ever had to deal with the dirty job of writing ugly code to wait for an element to appear in the DOM, you know how much it can hurt your soul.
