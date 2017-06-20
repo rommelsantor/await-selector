@@ -67,3 +67,13 @@ const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolv
     reject(exception)
   }
 })
+
+const watchAwaitSelector = (callback, selector, rootNode, fallbackDelay) => {
+  (function awaiter(continueWatching = true) {
+    if (continueWatching === false) return
+
+    awaitSelector(selector, rootNode, fallbackDelay)
+      .then(callback)
+      .then(awaiter)
+  }())
+}
