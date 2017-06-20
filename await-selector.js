@@ -25,20 +25,20 @@ const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolv
 
       if (allElements.length === 0) return
 
-      let newElements = 0
+      const newElements = []
 
       const attributeForBypassing = 'data-awaitselector-resolved'
 
       allElements.forEach((el, i) => {
         if (typeof el[attributeForBypassing] === 'undefined') {
           allElements[i][attributeForBypassing] = ''
-          newElements += 1
+          newElements.push(allElements[i])
         }
       })
 
-      if (newElements > 0) {
+      if (newElements.length > 0) {
         stopWatching()
-        resolve(allElements)
+        resolve(newElements)
       }
     }
 
