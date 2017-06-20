@@ -41,3 +41,12 @@ createAwaiter()
 ```
 
 As a fallback, if you're concerned about older browsers, the function will automatically use the aforementioned polling to look for new elements that match your selector(s). You can specify the polling delay, but it defaults to 250ms.
+
+Because it's a common pattern to want to always watch for new insertions matching your selector, I also wrote the `watchAwaitSelector()` function, which allows you to provide a callback that will be called every time new matching elements are added to the DOM, instead of just one time.
+
+For example, this can be used instead of the code in the `createAwaiter()` code in the snippet above:
+
+```
+const subtreeRoot = document.querySelector('#the-parent')
+watchAwaitSelector(dumpElements, '.my-list-item', subtreeRoot)
+```
