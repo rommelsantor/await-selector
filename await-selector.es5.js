@@ -75,3 +75,13 @@ var awaitSelector = function awaitSelector(selector, rootNode, fallbackDelay) {
     }
   });
 };
+
+var watchAwaitSelector = function watchAwaitSelector(callback, selector, rootNode, fallbackDelay) {
+  (function awaiter() {
+    var continueWatching = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+    if (continueWatching === false) return;
+
+    awaitSelector(selector, rootNode, fallbackDelay).then(callback).then(awaiter);
+  })();
+};
