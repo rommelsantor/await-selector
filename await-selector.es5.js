@@ -33,20 +33,20 @@ var awaitSelector = function awaitSelector(selector, rootNode, fallbackDelay) {
 
         if (allElements.length === 0) return;
 
-        var newElements = 0;
+        var newElements = [];
 
         var attributeForBypassing = 'data-awaitselector-resolved';
 
         allElements.forEach(function (el, i) {
           if (typeof el[attributeForBypassing] === 'undefined') {
             allElements[i][attributeForBypassing] = '';
-            newElements += 1;
+            newElements.push(allElements[i]);
           }
         });
 
-        if (newElements > 0) {
+        if (newElements.length > 0) {
           stopWatching();
-          resolve(allElements);
+          resolve(newElements);
         }
       };
 
