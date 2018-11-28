@@ -1,0 +1,43 @@
+{
+  "name": "await-selector",
+  "version": "1.0.0",
+  "description": "Detect Inserted DOM Elements Matching a Selector",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx babel --presets @babel/preset-env src --out-dir lib",
+    "test": "npx jest test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rommelsantor/await-selector.git"
+  },
+  "keywords": [
+    "promise",
+    "detect",
+    "detection",
+    "insert",
+    "inject",
+    "append",
+    "selector",
+    "DOM",
+    "node",
+    "element"
+  ],
+  "author": "Rommel Santor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rommelsantor/await-selector/issues"
+  },
+  "homepage": "https://github.com/rommelsantor/await-selector#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.1.6"
+  },
+  "jest": {
+    "verbose": true
+  }
+}

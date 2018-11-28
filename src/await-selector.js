@@ -2,7 +2,9 @@
 
 const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolve, reject) => {
   try {
-    const root = rootNode || document
+    const root = rootNode
+      ? typeof rootNode === 'string' ? document.querySelector(rootNode) : rootNode
+      : document
     const ObserverClass = MutationObserver || WebKitMutationObserver || null
     const mutationObserverSupported = typeof ObserverClass === 'function'
 
@@ -68,7 +70,7 @@ const awaitSelector = (selector, rootNode, fallbackDelay) => new Promise((resolv
   }
 })
 
-const watchAwaitSelector = (callback, selector, rootNode, fallbackDelay) => {
+export const watchAwaitSelector = (callback, selector, rootNode, fallbackDelay) => {
   (function awaiter(continueWatching = true) {
     if (continueWatching === false) return
 
@@ -77,3 +79,5 @@ const watchAwaitSelector = (callback, selector, rootNode, fallbackDelay) => {
       .then(awaiter)
   }())
 }
+
+export default awaitSelector
