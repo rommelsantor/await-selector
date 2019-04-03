@@ -1,6 +1,6 @@
 {
   "name": "await-selector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect Inserted DOM Elements Matching a Selector",
   "main": "index.js",
   "scripts": {
@@ -32,11 +32,10 @@
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "jest": "^23.6.0"
   },
-  "dependencies": {
-    "@babel/preset-env": "^7.1.6"
-  },
+  "dependencies": {},
   "jest": {
     "verbose": true
   }
